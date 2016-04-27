@@ -13,7 +13,6 @@
   
 -----
 
-Note that there is an error if a project.lock.json file is not present:
-  - Project app does not have a lock file
+Note that there is an error if a project.lock.json file is not present: **Project app does not have a lock file**
   - This error takes place even though `dotnet restore` produces a lock file.
-  - As a workaround, create the lock file be restoring packages locally.
+  - As a workaround, create the lock file by restoring packages locally.
