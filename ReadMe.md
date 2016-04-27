@@ -2,7 +2,7 @@
 
 1. First install the Docker toolbox 
 
-2. Build an image based on the latest .NET CLI bits, run the following docker command:
+2. Build an image based on the latest .NET CLI bits by running the following docker command:
 
     ```
     docker-compose up
