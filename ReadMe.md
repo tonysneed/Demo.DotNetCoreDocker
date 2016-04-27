@@ -1,19 +1,26 @@
 # DotNet Core Docker Demo
 
-1. First install the Docker toolbox 
+1. First install **Docker Toolbox**: https://www.docker.com/products/docker-toolbox
 
-2. Build an image based on the latest .NET CLI bits, run the following docker command:
+2. Build an image based on the latest .NET CLI bits
 
     ```
-    docker-compose up
+    cd Demo.DotNetCoreDocker
+    docker build -t tonysneed/dotnet-aspnet .
     ```
 
-3. Open a browser: `http://192.168.99.100:5000`
-  - You should see: **Hell World!**
+3. Create and run a Docker container based on the image
+
+    ```
+    docker run -d -p 5000:5000 --name dotnet-aspnet tonysneed/dotnet-aspnet
+    ```
+
+4. Open a browser: `http://192.168.99.100:5000`
+  - You should see: **Hello World!**
   
+
 -----
 
-Note that there is an error if a project.lock.json file is not present:
-  - Project app does not have a lock file
-  - This error takes place even though `dotnet restore` produces a lock file.
-  - As a workaround, create the lock file be restoring packages locally.
+NOTE: The Dockerfile runs a `chown` command to change ownership of the project.lock.json file
+  - This is to prevent the following error: 'Project app does not have a lock file'
+  - Mounting volumes must take place *after* running the `chown` command
