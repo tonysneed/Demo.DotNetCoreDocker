@@ -9,7 +9,7 @@
     ```
 
 3. Open a browser: `http://192.168.99.100:5000`
-  - You should see: **Hell World!**
+  - You should see: **Hello World!**
   
 -----
 
