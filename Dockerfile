@@ -10,8 +10,6 @@ FROM microsoft/dotnet-preview
 
 MAINTAINER Anthony Sneed
 
-ENV ASPNET_ENVIRONMENT=Development
-
 COPY . /app
 WORKDIR /app
 
@@ -28,4 +26,4 @@ EXPOSE 5000
 
 # Specify a url with a wildcard for the host name
 # Note that this argument will be replaced by a manual process
-ENTRYPOINT ["dotnet", "run", "server.urls=http://*:5000"]
+ENTRYPOINT ["dotnet", "run", "--server.urls=http://*:5000", "--environment=Development"]
