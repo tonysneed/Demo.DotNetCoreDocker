@@ -10,6 +10,8 @@ FROM microsoft/dotnet-preview
 
 MAINTAINER Anthony Sneed
 
+ENV ASPNET_ENVIRONMENT=Development
+
 COPY . /app
 WORKDIR /app
 
