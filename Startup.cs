@@ -8,6 +8,8 @@ namespace HelloWeb
     {
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles();
+
             app.Run(context =>
             {
                 return context.Response.WriteAsync("Hello World!");
