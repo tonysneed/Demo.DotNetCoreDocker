@@ -15,15 +15,10 @@ WORKDIR /app
 
 RUN ["dotnet", "restore"]
 
-# Change ownership of created files to main user on host
-# Required to prevent error: 'Project app does not have a lock file'
-RUN chown -R 1000:1000 project.lock.json
-
-# Must mount volumes after changing ownership
 VOLUME nuget:/root/.nuget
 
 EXPOSE 5000
 
-# Specify a url with a wildcard for the host name
-# Note that this argument will be replaced by a manual process
-ENTRYPOINT ["dotnet", "run", "--server.urls=http://*:5000", "--environment=Development"]
+COPY ./dotnet-run.sh /
+RUN chmod +x /dotnet-run.sh
+ENTRYPOINT ["/dotnet-run.sh"]
