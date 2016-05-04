@@ -5,7 +5,7 @@
 # docker build -t tonysneed/dotnet-helloweb .
 
 # Create and run a container:
-# docker run -d -p 5000:5000 --name dotnet-aspnet -v "${PWD}:/app" tonysneed/dotnet-helloweb
+# docker run -d -p 5000:5000 --name dotnet-helloweb -v "${PWD}:/app" tonysneed/dotnet-helloweb
 
 FROM tonysneed/dotnet-preview:1.0.0-rc2-002659
 

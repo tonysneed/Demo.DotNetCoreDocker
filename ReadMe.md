@@ -12,7 +12,7 @@
 3. Create and run a Docker container based on the image
 
     ```
-    docker run -d -p 5000:5000 --name dotnet-aspnet -v "${PWD}:/app" tonysneed/dotnet-helloweb
+    docker run -d -p 5000:5000 --name dotnet-helloweb -v "${PWD}:/app" tonysneed/dotnet-helloweb
     ```
 
 4. Open a browser: `http://192.168.99.100:5000`
