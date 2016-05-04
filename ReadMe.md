@@ -6,21 +6,21 @@
 
     ```
     cd Demo.DotNetCoreDocker
-    docker build -t tonysneed/dotnet-aspnet .
+    docker build -t tonysneed/dotnet-helloweb .
     ```
 
 3. Create and run a Docker container based on the image
 
     ```
-    docker run -d -p 5000:5000 --name dotnet-aspnet tonysneed/dotnet-aspnet
+    docker run -d -p 5000:5000 --name dotnet-aspnet -v "${PWD}:/app" tonysneed/dotnet-helloweb
     ```
 
 4. Open a browser: `http://192.168.99.100:5000`
   - You should see: **Hello World!**
   
-
------
-
-NOTE: The Dockerfile runs a `chown` command to change ownership of the project.lock.json file
-  - This is to prevent the following error: 'Project app does not have a lock file'
-  - Mounting volumes must take place *after* running the `chown` command
+5. Open a browser: `http://192.168.99.100:5000/hello.html`
+  - You should see: **Hello from ASP.NET Core!**
+  - Change the message in wwwroot/hello.html
+  - Refresh the browser to see the updated message
+  
+  
