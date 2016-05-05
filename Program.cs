@@ -1,5 +1,6 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloWeb
 {
@@ -7,9 +8,12 @@ namespace HelloWeb
     {
         public static void Main(string[] args)
         {
-            // TODO: Replace args with environment variables
-            var url = args[0];
-            var env = args[1];
+            // Get environment variables
+            var config = new ConfigurationBuilder()
+                .AddEnvironmentVariables("")
+                .Build();
+            var url = config["ASPNETCORE_URLS"] ?? "http://*:5000";
+            var env = config["ASPNETCORE_ENVIRONMENT"] ?? "Development";
             
             var host = new WebHostBuilder()
                         .UseKestrel()
